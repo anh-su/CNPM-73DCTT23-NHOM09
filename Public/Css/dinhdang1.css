@@ -1,0 +1,21 @@
+*{margin: 0px;}
+.header{
+    height: 70px;
+    background: #93f39f;
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 30px;
+}
+.menu{
+    height: 40px;
+    background: black;
+}
+.menu>ul>li{
+    list-style: none;
+    float: left;
+}
+.menu_left{
+    width: 300px;
+    height: 500px;
+    background: green;
+}

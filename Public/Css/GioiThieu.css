@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+}
+/*background*/
+.gioithieu {
+  background-image: url("https://png.pngtree.com/background/20230527/original/pngtree-desk-with-a-computer-picture-image_2768815.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 450vh;
+  background-attachment: fixed;
+}
+/*nội dung bài*/
+.content {
+  height: 450vh;
+  width: 92%;
+  background-color: aliceblue;
+  margin-left: 4%;
+  opacity: 0.95;
+}
+/*header*/
+.header {
+  height: 3cm;
+  width: 100%;
+  display: flex;
+  background-color: rgb(190, 240, 241);
+  border-radius: 10px;
+  border-bottom: 2px inset;
+}
+.header > h2 {
+  padding-top: 2cm;
+  padding-left: 3cm;
+}
+.nutdangnhap {
+  padding-top: 2cm;
+  margin-left: 50%;
+  color: azure;
+}
+/*phần thân*/
+.center {
+  height: 10cm;
+  width: 100%;
+}
+/*nội dung phần thân trên*/
+.tren {
+  width: 100%;
+  height: 11.91cm;
+  display: flex;
+}
+.trai {
+  height: 10cm;
+  width: 50%;
+
+  text-align: center;
+}
+.trai_noidung {
+  padding-top: 110px;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.trai_noidung > p {
+  font-size: 20px;
+  padding-right: 65px;
+  padding-left: 65px;
+}
+.phai {
+  height: 10cm;
+  width: 50%;
+}
+.anh_phai {
+  width: 60%;
+  height: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*nội dung sau phần trên*/
+.duoi {
+  width: 100%;
+  height: 10cm;
+  display: block;
+  background-color: rgb(215, 216, 185);
+  border-radius: 10px;
+  position: relative;
+}
+.duoisau {
+  width: 100%;
+  height: 10cm;
+  display: flex;
+  opacity: 0;
+  transition: 1s ease;
+}
+.duoisau:hover {
+  opacity: 1;
+}
+.duoitrai {
+  height: 10cm;
+  width: 413px;
+}
+.duoitrai > h4 {
+  text-align: center;
+}
+.duoitrai > p {
+  padding-left: 1.5cm;
+  padding-right: 1.5cm;
+  text-align: center;
+  line-height: 21px;
+}
+.duoigiua {
+  height: 10cm;
+  width: 413px;
+}
+.anhduoi {
+  width: 2cm;
+  height: 2cm;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2cm;
+}
+.duoigiua > h4 {
+  text-align: center;
+}
+.duoigiua > p {
+  padding-left: 1.5cm;
+  padding-right: 1.5cm;
+  text-align: center;
+  line-height: 21px;
+}
+.duoiphai {
+  height: 10cm;
+  width: 415px;
+}
+.duoiphai > h4 {
+  text-align: center;
+}
+.duoiphai > p {
+  padding-left: 1.5cm;
+  padding-right: 1.5cm;
+  text-align: center;
+  line-height: 21px;
+}
+/*1 nội dung sau phần dưới*/
+.duoi1 {
+  height: 11.5cm;
+  width: 100%;
+
+  display: block;
+}
+.duoi1sau {
+  display: flex;
+}
+.duoi1trai {
+  height: 11.5cm;
+  width: 50%;
+}
+.duoi1trai > h2 {
+  text-align: center;
+  padding-top: 2.5cm;
+}
+.duoi1trai > p {
+  font-size: 20px;
+  text-align: center;
+  padding-left: 2.5cm;
+  padding-right: 2.5cm;
+}
+.rdo1 {
+  font-size: 18px;
+  padding-left: 2.8cm;
+  padding-right: 2.5cm;
+}
+.duoi1phai {
+  height: 11.5cm;
+  width: 50%;
+}
+.anhduoi1 {
+  height: 7cm;
+  width: 12cm;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2.3cm;
+}
+/*2 nội dung sau phần dưới*/
+
+.duoi2 {
+  height: 11.5cm;
+  width: 100%;
+  background-color: rgb(215, 216, 185);
+  border-radius: 10px;
+  display: block;
+}
+.duoi2sau {
+  display: flex;
+  opacity: 0;
+  transition: 1s ease;
+}
+.duoi2sau:hover {
+  opacity: 1;
+}
+.duoi2phai {
+  height: 11.5cm;
+  width: 50%;
+}
+.duoi2phai > h2 {
+  text-align: center;
+  padding-top: 2.5cm;
+}
+.duoi2phai > p {
+  font-size: 20px;
+
+  padding-right: 2.5cm;
+}
+.rdo2 {
+  font-size: 18px;
+
+  padding-right: 2.5cm;
+}
+.duoi2trai {
+  height: 11.5cm;
+  width: 50%;
+}
+.anhduoi2 {
+  height: 7cm;
+  width: 12cm;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2.3cm;
+}
+/*3 nội dung sau phần dưới*/
+.duoi3 {
+  height: 11.5cm;
+  width: 100%;
+  display: block;
+}
+.duoi3sau {
+  display: flex;
+}
+.duoi3phai {
+  height: 11.5cm;
+  width: 50%;
+}
+.duoi3trai > h2 {
+  text-align: center;
+  padding-top: 2.5cm;
+}
+.duoi3trai > p {
+  font-size: 20px;
+  text-align: center;
+  padding-left: 2.5cm;
+  padding-right: 2.5cm;
+}
+.rdo3 {
+  font-size: 18px;
+  padding-left: 2.8cm;
+  padding-right: 2.5cm;
+}
+.duoi3trai {
+  height: 11.5cm;
+  width: 50%;
+}
+.anhduoi3 {
+  height: 7cm;
+  width: 12cm;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2.3cm;
+}
+/*4 nội dung sau phần dưới*/
+
+.duoi4 {
+  height: 11.5cm;
+  width: 100%;
+  background-color: rgb(215, 216, 185);
+  border-radius: 10px;
+}
+.duoi4sau {
+  padding-top: 2cm;
+}
+
+.duoi4sau > h2 {
+  text-align: center;
+  margin-top: -0.5cm;
+}
+.duoi4sau > p {
+  text-align: center;
+  font-size: 21px;
+}
+.duoiall {
+  height: 7.5cm;
+  width: 90%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-left: 5%;
+}
+.box {
+  height: 4cm;
+  width: 4cm;
+
+  background-color: rgb(80, 172, 233);
+  text-align: center;
+
+  border-radius: 5px;
+}
+.box > p {
+  margin-top: 40px;
+}
+
+.hinhtron {
+  width: 1.5cm;
+  height: 1.5cm;
+  background-color: rgb(255, 255, 255);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  margin-top: 5px;
+}
+.hinhtron > img {
+  width: 1.5cm;
+  height: 1.5cm;
+}
+/*footer*/
+
+.footer {
+  height: 5cm;
+  width: 100%;
+}
+.footersau {
+  height: 5cm;
+  width: 80%;
+  margin-left: 10%;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
