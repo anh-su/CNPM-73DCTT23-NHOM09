@@ -42,7 +42,7 @@ class GuithongbaoHS extends Controller
                 $kq = $this->GuithongbaoHS->thongbao_ins($td, $nd, $id_dtsv, $hoten, $thoigian);
                 $result = $kq ? 'success' : 'fail';
                 $this->view('Masterlayout_teacher', [
-                    'page' => 'GuitthongbaoHS',
+                    'page' => 'GuithongbaoHS',
                     'result' => $result,
                     'danhSachID_DTSV' => $this->GuithongbaoHS->layDanhSachID_DTSV(),
                     'danhSachThongBao' => $this->GuithongbaoHS->layDanhSachThongBao()

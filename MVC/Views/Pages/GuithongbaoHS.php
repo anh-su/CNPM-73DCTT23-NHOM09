@@ -185,9 +185,9 @@
                 <?php
                 if (!empty($data['result'])) {
                     if ($data['result'] == 'success') {
-                        echo 'Gửi thành công!';
+                        echo ' Thành công!';
                     } else {
-                        echo 'Gửi thất bại!-- Vui Lòng Thử Lại!';
+                        echo ' Thất bại!-- Vui Lòng Thử Lại!';
                     }
                 }
                 ?>

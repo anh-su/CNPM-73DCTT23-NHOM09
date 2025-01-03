@@ -51,14 +51,23 @@ class GuithongbaoHS_m extends connectDB
         }
     }
 
-    function resetAllThongbao()
+    public function resetAllThongbao()
     {
-        $stmt = $this->con->prepare("DELETE FROM thongbao");
+        // Lấy tên người đăng nhập từ session
+        $hoten = $_SESSION['Hoten'];
+    
+        // Chuẩn bị câu lệnh xóa thông báo của người đăng nhập
+        $stmt = $this->con->prepare("DELETE FROM thongbao WHERE Hoten = ?");
+        
         if ($stmt === false) {
             echo "Lỗi chuẩn bị câu lệnh xoá: " . $this->con->error;
             return false;
         }
-
+    
+        // Liên kết tham số với câu lệnh SQL
+        $stmt->bind_param('s', $hoten);
+    
+        // Thực thi câu lệnh
         if ($stmt->execute()) {
             $stmt->close();
             return true;
@@ -68,20 +77,45 @@ class GuithongbaoHS_m extends connectDB
             return false;
         }
     }
+    
 
     function layDanhSachThongBao()
     {
-        $sql = "SELECT * FROM thongbao";
-        $result = $this->con->query($sql);
-
-        if (!$result) {
-            echo "Lỗi truy vấn: " . $this->con->error;
+        // Kiểm tra xem session Hoten có tồn tại không
+        if (!isset($_SESSION['Hoten'])) {
+            echo "Người dùng chưa đăng nhập.";
             return [];
         }
-
+    
+        // Lấy Hoten từ session
+        $hotenNguoiDung = $_SESSION['Hoten'];
+    
+        // Chuẩn bị câu truy vấn với điều kiện Hoten
+        $sql = "SELECT * FROM thongbao WHERE Hoten = ?";
+        $stmt = $this->con->prepare($sql);
+    
+        if (!$stmt) {
+            echo "Lỗi chuẩn bị truy vấn: " . $this->con->error;
+            return [];
+        }
+    
+        // Gắn giá trị Hoten vào truy vấn
+        $stmt->bind_param('s', $hotenNguoiDung);
+    
+        // Thực thi truy vấn
+        if (!$stmt->execute()) {
+            echo "Lỗi thực thi truy vấn: " . $stmt->error;
+            return [];
+        }
+    
+        // Lấy kết quả và chuyển thành mảng
+        $result = $stmt->get_result();
         $thongbaoList = $result->fetch_all(MYSQLI_ASSOC);
+    
+        // Trả về danh sách thông báo
         return $thongbaoList;
     }
+    
 
     function xoaThongbaoById($id)
     {

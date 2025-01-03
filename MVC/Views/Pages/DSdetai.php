@@ -516,7 +516,7 @@
                                 // Update the row to indicate it has been assigned
                                 var row = $('button[data-id="' + $('#modalID_DTSV').val() + '"]').closest('tr');
                                 row.addClass('assigned');
-                                row.find('td:nth-child(7)').text('Đã Duyệt/Đã Phân Công');
+                                row.find('td:nth-child(7)').text('Đã Duyệt / Đã Phân Công');
                                 row.find('.btn-review').hide(); // Hide the "Phân Công" button
                             } else {
                                 $('#assignResultMessage').text(response.message || 'Không thể phân công giảng viên. Vui lòng thử lại.');

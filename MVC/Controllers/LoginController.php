@@ -53,7 +53,7 @@ class LoginController extends controller
 
                     // Điều hướng dựa trên vai trò
                     if ($_SESSION['Vaitro'] == 1) {
-                        header("Location: http://localhost/Doan/Home/Get_data");
+                        header("Location: http://localhost/Doan/Home/admin");
                         exit();
                     } else if ($_SESSION['Vaitro'] == 0) {
                         header("Location: http://localhost/Doan/Home/student");

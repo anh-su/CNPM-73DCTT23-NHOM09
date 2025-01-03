@@ -9,20 +9,29 @@ class Danhgiasv extends Controller
     }
 
     // Hiển thị trang chính
-    function Get_data()
+    public function Get_data()
     {
-          // Lấy danh sách tên đề tài và số lượng đề tài
-          $topicNames = $this->Danhgiasv->getTopicNames();
+
+         // Kiểm tra xem session có chứa ID_SV hay không
+    if (!isset($_SESSION['ID'])) {
+        die("Bạn cần đăng nhập để xem thông tin."); // Thông báo lỗi nếu chưa đăng nhập
+    }
+
+    // Lấy ID sinh viên từ session
+    $studentID = $_SESSION['ID'];
+        // Lấy danh sách tên đề tài và số lượng đề tài
+        $topicNames = $this->Danhgiasv->getTopicNames();
+    
+        // Lấy điểm của tất cả sinh viên theo từng đề tài
+        $studentScores = $this->Danhgiasv->getStudentScoresByTopic($studentID);
         
-          $topicCounts = [];
-          foreach ($topicNames as $topicName) {
-              $topicCounts[] = $this->Danhgiasv->countGroupsForTopic($topicName);
-          }
+        // Chuyển dữ liệu vào view
         $this->view('Masterlayout_student', [
-            'page' => 'Danhgia', // Load nội dung trang Danhgia
+            'page' => 'Danhgiasv',
             'topicNames' => $topicNames, 
-            'topicCount' => $topicCounts
+            'studentScores' => $studentScores
         ]);
     }
+    
 }
 ?>

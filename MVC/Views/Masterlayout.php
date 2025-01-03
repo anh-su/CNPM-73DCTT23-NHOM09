@@ -34,7 +34,7 @@
         <div class="row"> 
             <div class="menu_left1"> 
                 <div class="list-group"> 
-                    <a href="http://localhost/Doan/Home/Get_data" class="list-group-item "> 
+                    <a href="http://localhost/Doan/Home/admin" class="list-group-item "> 
                     <img src="http://localhost/Doan/Public/Pictures/fourcircles_116453.png" alt="Menu Icon" style="width: 16px; height: 16px; margin-left: 0px;margin-right:10px; vertical-align: right;">
                     Trang Chủ 
                 </a> 
@@ -121,7 +121,7 @@ document.getElementById("logoutConfirmBtn").addEventListener("click", function()
     $('#confirmLogoutModal').modal('hide');
     
    
-    window.location.href = "http://localhost/Doan/LoginController";
+    window.location.href = "http://localhost/Doan/Home/Get_data";
 });
 
 document.getElementById("menuDetai").addEventListener("click", function (event) {
