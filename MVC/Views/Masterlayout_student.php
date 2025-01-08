@@ -116,7 +116,7 @@ document.getElementById("logoutConfirmBtn").addEventListener("click", function()
     $('#confirmLogoutModal').modal('hide');
     
    
-    window.location.href = "http://localhost/Doan/LoginController";
+    window.location.href = "http://localhost/Doan/Home/Get_data";
 });
 
 document.getElementById("menuDetai").addEventListener("click", function (event) {

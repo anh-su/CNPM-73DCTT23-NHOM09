@@ -65,64 +65,68 @@ class ChitietDT extends Controller
     
 
     public function Get_detaisinhvien_details()
-    {
-        if (!empty($_POST['ID_DTSV'])) {
-            $ID_DTSV = htmlspecialchars($_POST['ID_DTSV']);
-            $details = $this->ChitietDT->layChiTietDeTaiSinhVien($ID_DTSV);
-    
-            if (!empty($details)) {
-                $output = '<table class="table table-striped table-bordered">';
-                $output .= '<thead class="thead-dark">
-                                <tr>
-                                    <th>STT</th>
-                                    <th>ID_DTSV</th>
-                                    <th>Tên Đề Tài</th>
-                                    <th>ID Sinh Viên</th>
-                                    <th>Họ Tên</th>
-                                    <th>Giảng Viên Hướng Dẫn</th>
-                                    <th>Mô Tả</th>
-                                    <th>Tên Khoa</th>
-                                    <th>Trạng Thái</th>
-                                    <th>File Báo Cáo</th>
-                                </tr>
-                            </thead>
-                            <tbody>';
-    
-                foreach ($details as $index => $detail) {
-                    $output .= '<tr>';
-                    $output .= '<td>' . ($index + 1) . '</td>';
-                    $output .= '<td>' . htmlspecialchars($detail['ID_DTSV']) . '</td>';
-                    $output .= '<td>' . htmlspecialchars($detail['Tendetai']) . '</td>';
-                    $output .= '<td>' . htmlspecialchars($detail['ID_Sinhvien']) . '</td>';
-                    $output .= '<td>' . htmlspecialchars($detail['Hoten']) . '</td>';
-                    $output .= '<td>' . htmlspecialchars($detail['Hotengv']) . '</td>';
-                    $output .= '<td>' . htmlspecialchars($detail['Mota']) . '</td>';
-                    $output .= '<td>' . htmlspecialchars($detail['Tenkhoa']) . '</td>';
-                    $output .= '<td>' . htmlspecialchars($detail['TrangthaiDT']) . '</td>';
-                    
-                    // Thêm form chọn tệp tại cột File Báo Cáo
-                    $disabled = !empty($detail['Filebaitap']) ? '' : 'disabled';
-                    $output .= '<td>
-                                    <form method="POST" action="http://localhost/Doan/ChitietDT/UploadFileBaoCao" enctype="multipart/form-data">
-                                        <input type="hidden" name="ID_DTSV" value="' . htmlspecialchars($detail['ID_DTSV']) . '">
-                                        <input type="file" name="file_baocao" accept=".pdf,.doc,.docx" onchange="toggleSubmitButton(this)">
-                                        <button style="margin-top:0.5cm; background:green" type="submit" class="btn btn-primary btn-submit-report" data-id="' . htmlspecialchars($detail['ID_DTSV']) . '" disabled>Nộp Báo Cáo</button>
-                                        <p id="fileNameDisplay">' . htmlspecialchars($detail['Filebaitap']) . '</p>
-                                    </form>
-                                </td>';
-                    $output .= '</tr>';
-                }
-    
-                $output .= '</tbody></table>';
-                echo $output;
-                exit();
-            } else {
-                echo '<p>Không có thông tin chi tiết.</p>';
+{
+    if (!empty($_POST['ID_DTSV'])) {
+        $ID_DTSV = htmlspecialchars($_POST['ID_DTSV']);
+        $details = $this->ChitietDT->layChiTietDeTaiSinhVien($ID_DTSV);
+
+        if (!empty($details)) {
+            $output = '<table class="table table-striped table-bordered">';
+            $output .= '<thead class="thead-dark">
+                            <tr>
+                                <th>STT</th>
+                                <th>ID_DTSV</th>
+                                <th>Tên Đề Tài</th>
+                                <th>ID Sinh Viên</th>
+                                <th>Họ Tên</th>
+                                <th>Giảng Viên Hướng Dẫn</th>
+                                <th>Mô Tả</th>
+                                <th>Tên Khoa</th>
+                                <th>Trạng Thái</th>
+                                <th>File Báo Cáo</th>
+                            </tr>
+                        </thead>
+                        <tbody>';
+
+            foreach ($details as $index => $detail) {
+                $disabled = in_array($detail['TrangthaiDT'], ['Hoàn Thành', 'Từ Chối']) 
+                            ? 'disabled style="opacity:0.5; cursor:not-allowed;"' 
+                            : '';
+
+                $output .= '<tr>';
+                $output .= '<td>' . ($index + 1) . '</td>';
+                $output .= '<td>' . htmlspecialchars($detail['ID_DTSV']) . '</td>';
+                $output .= '<td>' . htmlspecialchars($detail['Tendetai']) . '</td>';
+                $output .= '<td>' . htmlspecialchars($detail['ID_Sinhvien']) . '</td>';
+                $output .= '<td>' . htmlspecialchars($detail['Hoten']) . '</td>';
+                $output .= '<td>' . htmlspecialchars($detail['Hotengv']) . '</td>';
+                $output .= '<td>' . htmlspecialchars($detail['Mota']) . '</td>';
+                $output .= '<td>' . htmlspecialchars($detail['Tenkhoa']) . '</td>';
+                $output .= '<td>' . htmlspecialchars($detail['TrangthaiDT']) . '</td>';
+                
+                // Thêm form chọn tệp tại cột File Báo Cáo
+                $output .= '<td>
+                                <form method="POST" action="http://localhost/Doan/ChitietDT/UploadFileBaoCao" enctype="multipart/form-data">
+                                    <input type="hidden" name="ID_DTSV" value="' . htmlspecialchars($detail['ID_DTSV']) . '">
+                                    <input type="file" name="file_baocao" accept=".pdf,.doc,.docx" onchange="toggleSubmitButton(this)" ' . $disabled . '>
+                                    <button style="margin-top:0.5cm; background:green" type="submit" class="btn btn-primary btn-submit-report" data-id="' . htmlspecialchars($detail['ID_DTSV']) . '" ' . $disabled . '>Nộp Báo Cáo</button>
+                                    <p id="fileNameDisplay">' . htmlspecialchars($detail['Filebaitap']) . '</p>
+                                </form>
+                            </td>';
+                $output .= '</tr>';
             }
+
+            $output .= '</tbody></table>';
+            echo $output;
+            exit();
         } else {
-            echo '<p>Yêu cầu không hợp lệ.</p>';
+            echo '<p>Không có thông tin chi tiết.</p>';
         }
+    } else {
+        echo '<p>Yêu cầu không hợp lệ.</p>';
     }
+}
+
     
     public function rejectDetai() {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {

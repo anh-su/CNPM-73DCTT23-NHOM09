@@ -51,9 +51,9 @@
                     <img src="http://localhost/Doan/Public/Pictures/ic-feedback_97633.png" alt="Menu Icon" style="width: 16px; height: 16px; margin-left: 0px;margin-right:10px; vertical-align: right;">
                     Xem Thông Báo 
                 </a> 
-                    <a href="http://localhost/Doan/LienHe/HS" class="list-group-item">
+                    <a href="http://localhost/Doan/Thongkegv" class="list-group-item">
                     <img src="http://localhost/Doan/Public/Pictures/planning_todo_list_tasks_clipboard_icon_262700.png" alt="Menu Icon" style="width: 16px; height: 16px; margin-left: 0px;margin-right:10px; vertical-align: right;">
-                    Xem đánh giá
+                    Thống Kê
                 </a> 
                 </div> 
             </div> 
@@ -116,7 +116,7 @@ document.getElementById("logoutConfirmBtn").addEventListener("click", function()
     $('#confirmLogoutModal').modal('hide');
     
    
-    window.location.href = "http://localhost/Doan/LoginController";
+    window.location.href = "http://localhost/Doan/Home/Get_data";
 });
 
 document.getElementById("menuDetai").addEventListener("click", function (event) {
