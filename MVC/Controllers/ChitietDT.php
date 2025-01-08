@@ -89,7 +89,7 @@ class ChitietDT extends Controller
                         <tbody>';
 
             foreach ($details as $index => $detail) {
-                $disabled = in_array($detail['TrangthaiDT'], ['Hoàn Thành', 'Từ Chối']) 
+                $disabled = in_array($detail['TrangthaiDT'], ['Hoàn Thành', 'Từ Chối','Chờ Duyệt']) 
                             ? 'disabled style="opacity:0.5; cursor:not-allowed;"' 
                             : '';
 

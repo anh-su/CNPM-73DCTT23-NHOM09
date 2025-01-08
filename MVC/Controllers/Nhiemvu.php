@@ -145,18 +145,5 @@ class Nhiemvu extends Controller
         }
     }
 
-    function Get_report_file()
-    {
-        if (isset($_POST['ID_DTSV'])) {
-            $ID_DTSV = $_POST['ID_DTSV'];
-            $file_path = $this->Nhiemvu->getReportFilePath($ID_DTSV);
-
-            if ($file_path) {
-                echo json_encode(['file_path' => $file_path]);
-            } else {
-                echo json_encode(['file_path' => null]);
-            }
-        }
-    }
 }
 ?>

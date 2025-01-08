@@ -5,7 +5,7 @@ class Nhiemvu_m extends connectDB
     public function laydanhsachnhom($ID_Giangvien)
     {
         $sql = "
-            SELECT pc.ID_DTSV, d.Madetai, d.Tendetai, sv.Hoten, sv.Tenkhoa, sv.TrangthaiDT, kq.Diem
+            SELECT pc.ID_DTSV, d.Madetai, d.Tendetai, sv.Hoten, sv.Tenkhoa, sv.TrangthaiDT, kq.Diem,sv.Filebaitap
             FROM phancong AS pc
             JOIN detai AS d ON pc.Madetai = d.Madetai
             JOIN detaisinhvien AS sv ON pc.ID_DTSV = sv.ID_DTSV
@@ -120,16 +120,7 @@ class Nhiemvu_m extends connectDB
         return $stmt->execute([$ID_DTSV, $TrangthaiDT]);
     }
 
-    public function getReportFilePath($ID_DTSV)
-    {
-        $sql = "SELECT Filebaitap FROM detaisinhvien WHERE ID_DTSV = ?";
-        $stmt = $this->con->prepare($sql);
-        $stmt->bind_param('s', $ID_DTSV);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        return $row ? $row['Filebaitap'] : null;
-    }
+
 }
 
 ?>

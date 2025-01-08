@@ -170,7 +170,7 @@ class DSdetai_m extends connectDB
         }
     
         // Update the TrangthaiDT field in the detaisinhvien table
-        $updateStatus = $this->updateTrangThaiDetai($ID_DTSV, 'Đã Duyệt/Đã Phân Công');
+        $updateStatus = $this->updateTrangThaiDetai($ID_DTSV, 'Đã Duyệt / Đã Phân Công');
         if (!$updateStatus['status']) {
             return ['status' => false, 'error' => $updateStatus['error']];
         }

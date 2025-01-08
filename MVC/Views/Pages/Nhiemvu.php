@@ -55,6 +55,7 @@
                     <th>Trạng Thái</th>
                     <th>Điểm</th>
                     <th>Hoạt Động</th>
+             
                 </tr>
             </thead>
             <tbody>
@@ -74,6 +75,11 @@
                             <td><?php echo isset($nhom['Diem']) ? htmlspecialchars($nhom['Diem']) : 'Chưa Chấm'; ?></td>
                             <td>
                             <div class="btn-container">
+    <button class="btn btn-primary btn-report <?php echo empty($nhom['Filebaitap']) ? 'disabled-button' : ''; ?>" 
+        onclick="window.open('<?php echo htmlspecialchars($nhom['Filebaitap']); ?>', '_blank')" 
+        <?php echo empty($nhom['Filebaitap']) ? 'disabled' : ''; ?>>
+        Xem Báo Cáo
+    </button>
     <button class="btn btn-info btn-detail <?php echo ($nhom['TrangthaiDT'] == 'Từ Chối') ? 'disabled-button' : ''; ?>" 
         data-toggle="modal" data-target="#detailModal"
         data-id="<?php echo $nhom['ID_DTSV']; ?>" 
@@ -95,7 +101,9 @@
     </button>
 </div>
 
+
                             </td>
+                           
 
                         </tr>
                     <?php endforeach; ?>
@@ -162,7 +170,7 @@
                 <div class="modal-body">
                     <form method="POST" action="http://localhost/Doan/Nhiemvu/Update_grade_details">
                         <input type="hidden" id="editID_DTSV" name="ID_DTSV">
-                        <button type="button" class="btn btn-primary" id="editViewReport">Xem Báo Cáo</button>
+                       
                         <hr>
                         <div class="form-row">
                             <div class="form-group col-md-6">
