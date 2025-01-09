@@ -70,9 +70,12 @@ class Giangvien extends controller
             'dulieu' => $dulieu
         ]);
     }
+
+
+
     public function capnhatgv()
     {
-        if (isset($_POST['magv'])) {
+        if (isset($_POST['btnsua'])) {
             $idGiangvien = $_POST['magv'];
             $hoten = $_POST['hoten'];
             $ngaysinh = $_POST['ngaysinh'];
@@ -80,7 +83,8 @@ class Giangvien extends controller
             $sdt = $_POST['dienthoai'];
             $email = $_POST['email'];
             $gioitinh = $_POST['gioitinh'];
-            $kq = $this->Giangvien->updateGiangvien($idGiangvien, $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh);
+            $khoa = $_POST['id_khoa'];
+            $kq = $this->Giangvien->updateGiangvien($idGiangvien, $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh,$khoa);
             $result = $kq ? 'success' : 'fail';
     
             // Lấy lại tất cả sinh viên

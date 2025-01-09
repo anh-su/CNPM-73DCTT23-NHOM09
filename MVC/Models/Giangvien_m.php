@@ -13,16 +13,16 @@ class Giangvien_m extends connectDB
     $stmt->bind_param("s", $idGiangvien);
     return $stmt->execute();
 }
-public function updateGiangvien($idGiangvien, $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh)
+public function updateGiangvien($idGiangvien, $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh,$khoa)
 {
     $sql = "UPDATE giangvien
-            SET Hoten = ?, Ngaysinh = ?, Diachi = ?, Sdt = ?, Email = ?, Gioitinh = ?
+            SET Hoten = ?, Ngaysinh = ?, Diachi = ?, Sdt = ?, Email = ?, Gioitinh = ?,ID_Khoa = ?
             WHERE ID_Giangvien = ?";
     $stmt = $this->con->prepare($sql);
-    $stmt->bind_param("sssssss", $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh, $idGiangvien);
+    $stmt->bind_param("ssssssss", $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh,$khoa, $idGiangvien);
     return $stmt->execute();
 }
-function Giangvien_ins($ID_Giangvien, $Hoten, $Ngaysinh, $Diachi, $Email, $Sdt, $Gioitinh,$ID_Khoa) {
+function Giangvien_ins($ID_Giangvien, $Hoten, $Ngaysinh, $Diachi, $Email, $Sdt, $Gioitinh,$ID_Khoa,) {
     if (
         empty($ID_Giangvien) || empty($Hoten) || empty($Ngaysinh) || 
         empty($Diachi) || empty($Email) || empty( $Sdt) || empty($Gioitinh)  || empty($ID_Khoa)

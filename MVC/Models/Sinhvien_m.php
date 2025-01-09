@@ -13,13 +13,13 @@ class Sinhvien_m extends connectDB
     $stmt->bind_param("s", $idSinhvien);
     return $stmt->execute();
 }
-public function updateSinhvien($idSinhvien, $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh)
+public function updateSinhvien($idSinhvien, $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh,$idLop, $idKhoa)
 {
     $sql = "UPDATE sinhvien 
-            SET Hoten = ?, Ngaysinh = ?, Diachi = ?, Sdt = ?, Email = ?, Gioitinh = ?
+            SET Hoten = ?, Ngaysinh = ?, Diachi = ?, Sdt = ?, Email = ?, Gioitinh = ?, ID_Lop = ? ,ID_Khoa = ?
             WHERE ID_Sinhvien = ?";
     $stmt = $this->con->prepare($sql);
-    $stmt->bind_param("sssssss", $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh, $idSinhvien);
+    $stmt->bind_param("sssssssss", $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh,$idLop,$idKhoa, $idSinhvien);
     return $stmt->execute();
 }
 function Sinhvien_ins($ID_Sinhvien, $Hoten, $Ngaysinh, $Diachi, $Email, $Sdt, $Gioitinh,$ID_Lop,$ID_Khoa) {

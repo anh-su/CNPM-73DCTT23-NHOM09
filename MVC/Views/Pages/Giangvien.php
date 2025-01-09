@@ -17,7 +17,7 @@
         }
         .container {
             position: relative;
-            width: 1200px;
+            width: 1000px;
             height: auto;
             background-image: url('http://localhost/Doan/Public/Pictures/OIP.jpeg');
             background-size: cover;
@@ -311,7 +311,7 @@ text-decoration: none;
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
-                <button type="submit" class="btn btn-primary" form="editGiangvienForm">Lưu</button>
+                <button type="submit" class="btn btn-primary" form="editGiangvienForm" name="btnsua">Lưu</button>
             </div>
         </div>
     </div>

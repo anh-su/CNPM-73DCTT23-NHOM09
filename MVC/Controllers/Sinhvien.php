@@ -80,7 +80,7 @@ class Sinhvien extends controller
     }
     public function capnhatsv()
     {
-        if (isset($_POST['mahs'])) {
+        if (isset($_POST['btnsua'])) {
             $idSinhvien = $_POST['mahs'];
             $hoten = $_POST['hoten'];
             $ngaysinh = $_POST['ngaysinh'];
@@ -88,9 +88,10 @@ class Sinhvien extends controller
             $sdt = $_POST['dienthoai'];
             $email = $_POST['email'];
             $gioitinh = $_POST['gioitinh'];
-    
+            $idLop = $_POST['id_lop'];
+            $idKhoa = $_POST['id_khoa'];
             // Cập nhật sinh viên
-            $kq = $this->Sinhvien->updateSinhvien($idSinhvien, $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh);
+            $kq = $this->Sinhvien->updateSinhvien($idSinhvien, $hoten, $ngaysinh, $diachi, $sdt, $email, $gioitinh,$idLop, $idKhoa);
             
             // Kiểm tra kết quả cập nhật
             $result = $kq ? 'success' : 'fail';
@@ -98,7 +99,7 @@ class Sinhvien extends controller
             // Lấy lại tất cả sinh viên
             $dulieu = $this->Sinhvien->getAllSinhvien();
             $danhSachID_Lop = $this->Sinhvien->laydanhsachidlop();
-            $danhSachID_Khoa = $this->Sinhvien->laydanhsachidkhoa();
+            $danhSachID_Khoa = $this->Sinhvien->laydanhsachtenkhoa();
     
             // Truyền dữ liệu ra view
             $this->view('Masterlayout', [
